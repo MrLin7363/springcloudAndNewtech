@@ -16,7 +16,8 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:9000/eureka/ #多个eurekaserver之间用,隔开
+      defaultZone: http://localhost:9000/eureka/ #多个eurekaserver之间用,隔开。如果注册中心相互注册了，那么只要注册到其中一台就可以同步
+      # 避免在启动时9000注册中心宕机了，所以一般同时注册多个
   instance:
     prefer-ip-address: true #使用ip地址注册
 #    instance-id: ${spring.cloud.client.ip-address}:${server.port} #向注册中心中注册服务id

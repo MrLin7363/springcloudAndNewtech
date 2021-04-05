@@ -1,21 +1,22 @@
 #模拟两个EurekaServer
 #端口9000 , 8000
-#两个server需要相互注册
+#两个server需要相互注册，9000端口启动后，修改为8000，再复制application启动第二个注册中心，也可以再开一个模块
+# 9000注册到8000上，8000 注册到9000上, 开启完多个eureka后，各client也要, 注册到多个eureka，第一台启动要等第二台启动完才行
 spring:
   application:
     name: eureka-server
 server:
-  port: 9000 #端口
+  port: 8000 #端口  换端口
+
 #配置eureka server
 eureka:
-  instance:
-    hostname: 127.0.0.1
+#  instance:
+#    hostname: 127.0.0.1   多台服务相互注册时不能开这个
   client:
-    register-with-eureka: false #是否将自己注册到注册中心
-    fetch-registry: false #是否从eureka中获取注册信息
+    register-with-eureka: true #是否将自己注册到注册中心
+    fetch-registry: true #是否从eureka中获取注册信息
     service-url: #配置暴露给Eureka Client的请求地址
-#      defaultZone: http://127.0.0.1:9000/eureka/
-       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #
+      defaultZone: http://127.0.0.1:9000/eureka/   # 换端口
   server:
     enable-self-preservation: false #关闭自我保护
-    eviction-interval-timer-in-ms: 4000 #剔除服务间隔
+    eviction-interval-timer-in-ms: 4000 #剔除服务间隔 4秒后剔除没有发送心跳的服务
