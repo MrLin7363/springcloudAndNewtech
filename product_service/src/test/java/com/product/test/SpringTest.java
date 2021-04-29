@@ -1,8 +1,13 @@
 package com.product.test;
 
+import cn.itcast.product.controller.VO.ProductReqVO;
 import cn.itcast.product.dao.ProductDao;
+import cn.itcast.product.entity.Product;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author: chenjunlin
@@ -19,5 +24,4 @@ public class SpringTest extends BaseTest {
         Long id=2L;
         System.out.println(productDao.findById(id).get().toString());
     }
-
 }
