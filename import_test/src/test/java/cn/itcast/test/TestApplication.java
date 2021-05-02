@@ -1,7 +1,7 @@
 package cn.itcast.test;
 
-import cn.itcast.bean.EnableUserBean;
-import cn.itcast.bean.User;
+import com.junlinbean.EnableUserBean;
+import com.junlinbean.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @EnableUserBean

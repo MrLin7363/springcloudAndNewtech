@@ -1,7 +1,7 @@
 package com.product.test;
 
-import cn.itcast.product.controller.VO.ProductReqVO;
-import cn.itcast.product.entity.Product;
+import com.junlin.product.controller.VO.ProductReqVO;
+import com.junlin.product.entity.Product;
 import org.junit.Test;
 
 import java.util.ArrayList;

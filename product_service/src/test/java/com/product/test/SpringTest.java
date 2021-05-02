@@ -1,13 +1,8 @@
 package com.product.test;
 
-import cn.itcast.product.controller.VO.ProductReqVO;
-import cn.itcast.product.dao.ProductDao;
-import cn.itcast.product.entity.Product;
+import com.junlin.product.dao.ProductDao;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author: chenjunlin
