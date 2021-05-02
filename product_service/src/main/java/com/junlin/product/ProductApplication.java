@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan("com.junlin.product.entity")//    用于扫描JPA实体类 @Entity
-//@ComponentScan(basePackages = "com.junlin.product.*")  //   用于扫描@Controller @Service
-//@EnableJpaRepositories(basePackages = "com.junlin.product.dao")    //   用于扫描Dao @Repository
+//@ComponentScan(basePackages = "com.junlin.product.*")  //   用于扫描@Controller @Service   可不加
+//@EnableJpaRepositories(basePackages = "com.junlin.product.dao")    //   用于扫描Dao @Repository   可不加
 //激活eurekaClient   新版本spring中这下面两个注解不写都行，只要pom加入eureka开启就是检测eureka， EnableDiscoveryClient包含EnableEurekaClient
 //@EnableEurekaClient
 //@EnableDiscoveryClient
