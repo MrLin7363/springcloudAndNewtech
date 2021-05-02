@@ -1,4 +1,4 @@
-package com.junlinbean;
+package com.junlin.bean;
 
 import lombok.Data;
 

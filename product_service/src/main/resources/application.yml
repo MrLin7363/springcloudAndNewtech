@@ -12,6 +12,8 @@ spring:
     database: MySQL
     show-sql: true
     open-in-view: true
+    properties:
+      hibernate.hbm2ddl.auto: update
 #配置Eureka
 eureka:
   client:

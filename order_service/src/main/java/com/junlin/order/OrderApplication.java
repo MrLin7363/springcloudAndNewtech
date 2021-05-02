@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EntityScan("cn.itcast.order.entity")
+@EntityScan("com.junlin.order.entity")
 public class OrderApplication {
 
 	/**

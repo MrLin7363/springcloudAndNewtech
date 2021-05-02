@@ -1,4 +1,4 @@
-package com.junlinbean;
+package com.junlin.bean;
 
 import org.springframework.context.annotation.Bean;
 
