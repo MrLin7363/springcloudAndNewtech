@@ -7,15 +7,6 @@ spring:
         enabled: true # 开启Spring Cloud的重试功能
   application:
     name: service-order #服务名称
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/ssh_shop?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
-    username: root
-    password: 123456
-  jpa:
-    database: MySQL
-    show-sql: true
-    open-in-view: true
 #配置Eureka
 eureka:
   client:
@@ -23,6 +14,19 @@ eureka:
       defaultZone: http://localhost:9000/eureka/ ,http://localhost:8000/eureka/
   instance:
     prefer-ip-address: true #使用ip地址注册
+
+# 在feign中开启hystrix熔断
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    execution:
+      isolation:
+        thread:
+          timeoutInMilliseconds: 500 //线程超时,调用Fallback方法
+    circuitBreaker:
+      requestVolumeThreshold: 3  //10秒内出现3个以上请求(已临近阀值),并且出错率在50%以上,开启断路器.断开服务,调用Fallback方法
 
 #logging:
 #  level:
@@ -37,3 +41,4 @@ eureka:
 #    OkToRetryOnAllOperations: true # 是否对所有操作都进行重试
 #    MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
 #    MaxAutoRetries: 1 # 对当前实例的重试次数
+

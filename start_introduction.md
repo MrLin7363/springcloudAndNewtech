@@ -36,6 +36,11 @@ public class ProductApplication {
 
 注释加上
 
-先启动eureka-server才能启动product-server 和 order-server 
+1.启动eureka-server   
+2.启动product-server 
+3.启动order-server 
+eureka-server: http://127.0.0.1:8000/
+order-server: http://127.0.0.1:9002/order/buy/1
+product-server: http://127.0.0.1:9011/product/1
 
 import-server是没用的

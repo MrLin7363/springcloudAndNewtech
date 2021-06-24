@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -16,13 +17,12 @@ import java.util.Date;
 public class Product {
 
 	@Id
-	private Integer pid;
-	private String pname;
-	private Double market_price;
-	private Double shop_price;
-	private String image;
-	private String pdesc;
-	private Integer is_hot;
-	private Date pdate;
-	private Integer csid;
+
+	private Long id;
+	private String productName;
+	private Integer status;
+	private BigDecimal price;
+	private String productDesc;
+	private String caption;
+	private Integer inventory;
 }

@@ -20,10 +20,11 @@ public class ProductController {
 
 	@RequestMapping(value = "/{id}",method = RequestMethod.GET)
 	public Product findById(@PathVariable Long id) {
+		System.out.println("收到请求");
 //		Product product = productService.findById(id);
 		Product product=new Product();
 //		product.setPname("访问的服务地址:"+ip + ":" + port);
-		product.setPname("访问的服务地址:");
+		product.setProductName("手机");
 		return product;
 	}
 

@@ -12,6 +12,7 @@
     <artifactId>product_service</artifactId>
 
     <dependencies>
+        <!--数据库配置：引入了这个数据库yaml就要有数据库配置-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -21,10 +22,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <!--引入EurekaClient 启动文件要开启注解-->
-       <!-- <dependency>
+
+        <!--引入EurekaClient，注册到注册中心-->
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>-->
+        </dependency>
+
     </dependencies>
 </project>

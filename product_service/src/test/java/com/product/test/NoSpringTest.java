@@ -20,9 +20,9 @@ public class NoSpringTest {
         ProductReqVO reqVO=new ProductReqVO();
         List<ProductReqVO.ProductId> productLists=new ArrayList<>();
         ProductReqVO.ProductId produc=new ProductReqVO.ProductId();
-        produc.setPid(3);
+        produc.setPid(3L);
         ProductReqVO.ProductId produc2=new ProductReqVO.ProductId();
-        produc2.setPid(3);
+        produc2.setPid(3L);
         productLists.add(produc);
         productLists.add(produc2);
         reqVO.setProductList(productLists);
@@ -30,7 +30,7 @@ public class NoSpringTest {
         List<Product> resList = reqVO.getProductList().stream().map(
                 productListOne -> {
                     Product product = new Product();
-                    product.setPid(productListOne.getPid());
+                    product.setId(productListOne.getPid());
                     return product;
                 }
         ).collect(Collectors.toList());

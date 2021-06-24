@@ -16,7 +16,7 @@ eureka:
     register-with-eureka: true #是否将自己注册到注册中心
     fetch-registry: true #是否从eureka中获取注册信息
     service-url: #配置暴露给Eureka Client的请求地址
-      defaultZone: http://127.0.0.1:8000/eureka/   # 换端口
+      defaultZone: http://127.0.0.1:8000/eureka/   #  注册目标端口地址，如果两个服务器，要改这个为上一个启动的port
   server:
     enable-self-preservation: false #关闭自我保护
     eviction-interval-timer-in-ms: 4000 #剔除服务间隔 4秒后剔除没有发送心跳的服务

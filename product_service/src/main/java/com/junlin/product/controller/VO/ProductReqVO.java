@@ -16,7 +16,7 @@ public class ProductReqVO {
 
     @Data
     public static class ProductId {
-        private Integer pid;
+        private Long pid;
     }
 
 }

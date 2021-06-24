@@ -1,6 +1,7 @@
 package com.junlin.order.controller;
 
 import com.junlin.order.entity.Product;
+import com.junlin.order.feign.ProductHystrixFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -28,6 +29,8 @@ public class OrderController {
 //	 */
 	@Autowired
 	private DiscoveryClient discoveryClient;
+	@Autowired
+	private ProductHystrixFeign productHystrixFeign;
 
 
 	/**
@@ -41,6 +44,7 @@ public class OrderController {
 		Product product = null;
 //		product = restTemplate.getForObject("http://service-product/product/1",Product.class);
 		product = restTemplate.getForObject("http://127.0.0.1:9011/product/1",Product.class);
+		System.out.println(product);
 		return product;
 	}
 
@@ -63,6 +67,15 @@ public class OrderController {
 		Product product = null;
 		//如何调用商品服务?
 		product = restTemplate.getForObject("http://"+instance.getHost()+":"+instance.getPort()+"/product/1",Product.class);
+		return product;
+	}
+
+
+	@RequestMapping(value = "/buy/feign/{id}",method = RequestMethod.GET)
+	public Product findByIdFeign(@PathVariable Long id) {
+		Product product = null;
+		product = productHystrixFeign.findById(id);
+		System.out.println(product);
 		return product;
 	}
 
