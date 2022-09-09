@@ -1,0 +1,20 @@
+server:
+  port: 9012 #端口
+  context-path: /vuln/redis/api
+spring:
+  application:
+    name: service-product #服务名称
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://csi-tools-dev-dbmysql.hic.cloud:3306/csi_vuln_redis_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
+          username: ${MYSQL_USER:csi-vuln-service_rw}
+          password: ${MYSQL_PWD:UU85U0MteV}
+        test:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://csi-tools-test-devmysql.hic.cloud:3306/csi_vuln_redis_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
+          username: ${MYSQL_USER:csi-vuln-redis-service_rw}
+          password: ${MYSQL_PWD:EtaPUIXrAj}
+
