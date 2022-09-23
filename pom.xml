@@ -15,6 +15,7 @@
         <module>import_test</module>
         <module>multi_database_service</module>
         <module>es</module>
+        <module>sharding-jdbc</module>
     </modules>
 
     <parent>
