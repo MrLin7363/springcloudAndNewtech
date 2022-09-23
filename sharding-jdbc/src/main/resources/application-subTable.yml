@@ -1,0 +1,21 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds1
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://csi-tools-dev-dbmysql.hic.cloud:3306/z_cjl_test_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
+        username: csi-vuln-service_rw
+        password: UU85U0MteV
+    sharding:
+      tables:
+        tb_device:
+          actual-data-nodes: ds1.tb_device_$->{0..1}
+          table-strategy:
+            inline:  #分片策略
+              sharding-column: device_id     #分片建
+              algorithm-expression: tb_device_$->{device_id%2}    #分片算法
+    props:
+      sql:
+        show: true

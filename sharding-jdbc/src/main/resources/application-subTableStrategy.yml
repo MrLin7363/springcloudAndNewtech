@@ -1,0 +1,30 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds1
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://csi-tools-dev-dbmysql.hic.cloud:3306/z_cjl_test_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
+        username: csi-vuln-service_rw
+        password: UU85U0MteV
+    sharding:
+      tables:
+        tb_device:
+          actual-data-nodes: ds1.tb_device_$->{0..1}
+          table-strategy: # 下面只能同时存在一种分片策略 Only allowed 0 or 1 sharding strategy configuration.
+#            complex:
+#              sharding-columns: device_id,device_type
+#              algorithm-classname: com.lin.sharding.algorithm.ComplexAlgorithm
+            standard:
+              sharding-column: device_id
+              precise-algorithm-class-name: com.lin.sharding.algorithm.StandardPreciseAlgorithm
+              range-algorithm-classname: com.lin.sharding.algorithm.RangeAlgorithm
+#            hint:
+#              algorithm-class-name: com.lin.sharding.algorithm.HintAlgorithm
+#            inline:
+#              sharding-column: device_id
+#              algorithm-expression: tb_device_$->{device_id%2}
+    props:
+      sql:
+        show: true
