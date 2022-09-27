@@ -1,20 +1,53 @@
 server:
-  port: 9012 #端口
-  context-path: /vuln/redis/api
+  port: 1000 #端口
+  context-path: /multi/api
 spring:
   application:
-    name: service-product #服务名称
+    name: multi #服务名称
   datasource:
     dynamic:
       datasource:
         master:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://csi-tools-dev-dbmysql.hic.cloud:3306/csi_vuln_redis_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
-          username: ${MYSQL_USER:csi-vuln-service_rw}
-          password: ${MYSQL_PWD:UU85U0MteV}
+          url: jdbc:mysql://testdb:3306/test_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
+          username: ${MYSQL_USER:root}
+          password: ${MYSQL_PWD:123456}
         test:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://csi-tools-test-devmysql.hic.cloud:3306/csi_vuln_redis_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
-          username: ${MYSQL_USER:csi-vuln-redis-service_rw}
-          password: ${MYSQL_PWD:EtaPUIXrAj}
+          url: jdbc:mysql://testdb:3306/test_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
+          username: ${MYSQL_USER:root}
+          password: ${MYSQL_PWD:123456}
 
+## redis cluster 配置示例
+redis:
+  jedis:
+    hostName:
+    port: 0
+    password:
+    cluster:
+      nodes: 127.0.0.1:6312,6.123.231.423:6312
+      password: 123456
+      timeout: 10000
+      maxredirects: 5
+      pool:
+        max-total: 500 #最大连接数目
+        max-idle: 50 #最大空闲数目
+        min-idle: 10 #最小空闲数目
+        max-wait-millis: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制） 如果超过等待时间，则直接抛出JedisConnectionException 单位ms
+        test-on-borrow: true # 获取连接是否检查是否存活，为了性能可以关闭
+        test-on-return: true # 归还连接是否检查是否存活，为了性能可以关闭
+        test-while-idle: true # 空闲时检查连接的情况
+        time-between-eviction-runs-millis: 30000 # 多久运行一次空闲回收线程--30秒
+        min-evictable-idle-time-millis: 1800000 # 超过30分钟回收连接池
+        num-tests-per-eviction-run: 3 # 回收空闲连接线程的数量
+        block-when-exhausted: true # redis配置结束
+
+---
+spring:
+  profiles: production
+
+redis:
+  jedis:
+    hostName: guess_what
+    port: 6379
+    password: guess_what
