@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      host: 127.0.0.1
+      database: articledb
+      port: 27017 # 默认就是
+#      uri: mongodb://127.0.0.1:27017/articledb  也可以使用uri
+      uri: mongodb://127.0.0.1:27017,123.76.127.123:27018/articledb?connect=replicaSet&slaveOk=true&replicaSet=myrs
+      # 有认证的话 mongodb://root:123456@127.0.0.1:27017,123.76.127.123:27018/articledb?connect=replicaSet&slaveOk=true&replicaSet=myrs
