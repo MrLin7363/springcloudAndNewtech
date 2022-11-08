@@ -133,5 +133,17 @@ public class RedisConfig extends JCacheConfigurerSupport {
         redis.afterPropertiesSet();
         return redis;
     }
+    
+    /**
+     * 过期监听-可不要
+     * @param redisConnectionFactory
+     * @return
+     */
+    @Bean
+    public RedisMessageListenerContainer redisMessageListenerContainer(RedisConnectionFactory redisConnectionFactory) {
+        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+        container.setConnectionFactory(redisConnectionFactory);
+        return container;
+    }
 }
 
