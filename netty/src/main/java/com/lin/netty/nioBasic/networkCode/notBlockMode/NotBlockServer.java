@@ -12,6 +12,9 @@ import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 非阻塞 2
+ */
 @Slf4j
 public class NotBlockServer {
 

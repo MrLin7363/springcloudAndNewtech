@@ -12,6 +12,9 @@ import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 阻塞模式的 1
+ */
 @Slf4j
 public class BlockServer {
 
