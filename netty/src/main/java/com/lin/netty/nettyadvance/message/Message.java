@@ -42,19 +42,19 @@ public abstract class Message implements Serializable {
     private static final Map<Integer, Class<? extends Message>> messageClasses = new HashMap<>();
 
     static {
-        messageClasses.put(LoginRequestMessage, LoginRequestMessage.class);
-//        messageClasses.put(LoginResponseMessage, LoginResponseMessage.class);
-//        messageClasses.put(ChatRequestMessage, ChatRequestMessage.class);
-//        messageClasses.put(ChatResponseMessage, ChatResponseMessage.class);
-//        messageClasses.put(GroupCreateRequestMessage, GroupCreateRequestMessage.class);
-//        messageClasses.put(GroupCreateResponseMessage, GroupCreateResponseMessage.class);
-//        messageClasses.put(GroupJoinRequestMessage, GroupJoinRequestMessage.class);
-//        messageClasses.put(GroupJoinResponseMessage, GroupJoinResponseMessage.class);
-//        messageClasses.put(GroupQuitRequestMessage, GroupQuitRequestMessage.class);
+        messageClasses.put(LoginRequestMessage, com.lin.netty.nettyadvance.message.request.LoginRequestMessage.class);
+        messageClasses.put(LoginResponseMessage, com.lin.netty.nettyadvance.message.response.LoginResponseMessage.class);
+        messageClasses.put(ChatRequestMessage, com.lin.netty.nettyadvance.message.request.ChatRequestMessage.class);
+        messageClasses.put(ChatResponseMessage, com.lin.netty.nettyadvance.message.response.ChatResponseMessage.class);
+        messageClasses.put(GroupCreateRequestMessage, com.lin.netty.nettyadvance.message.request.GroupCreateRequestMessage.class);
+        messageClasses.put(GroupCreateResponseMessage, com.lin.netty.nettyadvance.message.response.GroupCreateResponseMessage.class);
+        messageClasses.put(GroupJoinRequestMessage, com.lin.netty.nettyadvance.message.request.GroupJoinRequestMessage.class);
+        messageClasses.put(GroupJoinResponseMessage, com.lin.netty.nettyadvance.message.response.GroupJoinResponseMessage.class);
+        messageClasses.put(GroupQuitRequestMessage, com.lin.netty.nettyadvance.message.request.GroupQuitRequestMessage.class);
 //        messageClasses.put(GroupQuitResponseMessage, GroupQuitResponseMessage.class);
-//        messageClasses.put(GroupChatRequestMessage, GroupChatRequestMessage.class);
-//        messageClasses.put(GroupChatResponseMessage, GroupChatResponseMessage.class);
-//        messageClasses.put(GroupMembersRequestMessage, GroupMembersRequestMessage.class);
-//        messageClasses.put(GroupMembersResponseMessage, GroupMembersResponseMessage.class);
+        messageClasses.put(GroupChatRequestMessage, com.lin.netty.nettyadvance.message.request.GroupChatRequestMessage.class);
+        messageClasses.put(GroupChatResponseMessage, com.lin.netty.nettyadvance.message.response.GroupChatResponseMessage.class);
+        messageClasses.put(GroupMembersRequestMessage, com.lin.netty.nettyadvance.message.request.GroupMembersRequestMessage.class);
+        messageClasses.put(GroupMembersResponseMessage, com.lin.netty.nettyadvance.message.response.GroupMembersResponseMessage.class);
     }
 }
