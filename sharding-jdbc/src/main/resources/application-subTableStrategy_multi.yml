@@ -5,9 +5,9 @@ spring:
       ds1:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.cj.jdbc.Driver
-        jdbcUrl: jdbc:mysql://csi-tools-dev-dbmysql.hic.cloud:3306/z_cjl_test_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
-        username: csi-vuln-service_rw
-        password: UU85U0MteV
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/z_cjl_test_db?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
+        username: root
+        password: 123456
     sharding:
       tables:
         tb_device:
