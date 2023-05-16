@@ -1,6 +1,3 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2022-2022. All rights reserved.
- */
 
 package com.lin.multi.database.config;
 
@@ -31,7 +28,7 @@ import javax.sql.DataSource;
  * @since 2022/10/31
  */
 @Configuration
-@MapperScan(basePackages = "com.huawei.csitool.csi.dashboard.service.mapper.redis",
+@MapperScan(basePackages = "com.lin.redis",
     sqlSessionFactoryRef = "RedisSqlSessionFactory")
 public class RedisDbConfig {
     private static final int POOLSIZE = 50;
