@@ -1,0 +1,27 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds1
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://7.220.68.80:3306/z_cjl_test?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
+        username: dev_rw
+        password: V2xQRmkzN1
+    sharding:
+      tables:
+        proxy_statistic: #1-11-21-月底，一个月分三表  proxy_statistic_20230501  如果用字符串 ${['online', 'offline']}
+          actual-data-nodes: ds1.proxy_statistic_$->{2023..2033}$->{(1..12).collect{t ->t.toString().padLeft(2,'0')}}$->{1..3}
+          table-strategy: # 按照时间范围分片-工作实际案例
+            standard:
+              sharding-column: proxy_start
+              precise-algorithm-class-name: com.lin.sharding.algorithm.statistic.PreciseAlgorithm # 查询时
+              range-algorithm-classname: com.lin.sharding.algorithm.statistic.RangeAlgorithm # 插入时
+    props:
+      sql:
+        show: true
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.lin.sharding.domain
+  configuration:
+    map-underscore-to-camel-case: true
