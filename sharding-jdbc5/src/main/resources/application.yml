@@ -1,0 +1,30 @@
+spring:
+  shardingsphere:
+    mode:
+      type: Memory
+    datasource:
+      names: ds1
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: org.mariadb.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/z_test?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
+        username: dev_rw
+        password: V2xQRmkzN1
+    rules:
+      sharding:
+        tables:
+          order: # 日期每月两张表
+            actual-data-nodes: ds1.oredr_->{2023..2033}$->{(1..12).collect{t ->t.toString().padLeft(2,'0')}}${['01', '16']}
+            table-strategy:
+              standard:
+                sharding-column: order_time
+                sharding-algorithm-name: orderAlgorithm
+        sharding-algorithms:
+          orderAlgorithm:
+            type: CLASS_BASED
+            props:
+              strategy: standard
+              # 自定义标准分配算法
+              algorithmClassName: com.lin.sharding.algorithm.OrderAlgorithm
+    props:
+      sql-show: true

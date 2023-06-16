@@ -1,0 +1,11 @@
+5.1.2
+注意必须存在第一张order_20230101表，否则逻辑表初始化失败
+
+/**
+ * CREATE TABLE `order_20230516` (
+ *   `id` int(11) NOT NULL,
+ *   `order_time` bigint(20) DEFAULT NULL,
+ *   `order_name` varchar(255) DEFAULT NULL,
+ *   PRIMARY KEY (`id`)
+ * ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ */
