@@ -21,6 +21,7 @@
         <module>security</module>
         <module>spring-all</module>
         <module>netty</module>
+        <module>rocket_mq</module>
     </modules>
 
     <parent>
