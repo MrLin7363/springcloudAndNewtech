@@ -1,8 +1,6 @@
 package com.junlin.kafka;
 
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.*;
 
 import java.util.Properties;
 
@@ -34,7 +32,12 @@ public class ProducerFastStart {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         ProducerRecord<String, String> record = new ProducerRecord<>(topic, "Kafka-demo-001", "hello, cavalier2!");
         try {
-            producer.send(record);
+            producer.send(record, new Callback() {
+                @Override
+                public void onCompletion(RecordMetadata recordMetadata, Exception e) {
+
+                }
+            });
             //RecordMetadata recordMetadata = producer.send(record).get();
             //System.out.println("part:" + recordMetadata.partition() + ";topic:" + recordMetadata.topic());
         } catch (Exception e) {

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>import_test</artifactId>
+    <artifactId>kafka</artifactId>
 
     <dependencies>
 
@@ -32,12 +32,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-<!--        <dependency>-->
-<!--                <groupId>org.apache.kafka</groupId>-->
-<!--                <artifactId>kafka_2.11</artifactId>-->
-<!--                <version>2.0.0</version>-->
-<!--            </dependency>-->
 
     </dependencies>
 
