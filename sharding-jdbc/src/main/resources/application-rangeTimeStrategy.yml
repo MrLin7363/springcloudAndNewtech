@@ -5,7 +5,7 @@ spring:
       ds1:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.cj.jdbc.Driver
-        jdbcUrl: jdbc:mysql://7.220.68.80:3306/z_cjl_test?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
+        jdbcUrl: jdbc:mysql://xxx:3306/z_cjl_test?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT
         username: dev_rw
         password: V2xQRmkzN1
     sharding:

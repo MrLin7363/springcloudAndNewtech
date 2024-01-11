@@ -35,7 +35,7 @@ public class ProducerFastStart {
             producer.send(record, new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-
+                    // 异常兜底
                 }
             });
             //RecordMetadata recordMetadata = producer.send(record).get();
