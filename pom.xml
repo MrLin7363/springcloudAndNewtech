@@ -12,7 +12,7 @@
         <module>product_service</module>
         <module>order_service</module>
         <module>eureka_server</module>
-        <module>import_test</module>
+        <module>kafka</module>
         <module>multi_database_service</module>
         <module>es</module>
         <module>sharding-jdbc</module>
